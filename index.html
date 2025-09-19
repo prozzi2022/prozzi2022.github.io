@@ -501,38 +501,205 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .navbar .container {
+                padding: 12px 16px;
+            }
+
             .nav-links {
                 display: none;
             }
 
-            .hero-content {
-                flex-direction: column;
-                gap: 30px;
+            /* Hero Section Mobile */
+            .hero {
+                padding: 60px 0 40px;
+                margin-top: 60px;
             }
 
-            .hero-text h1 {
-                font-size: 2rem;
+            .hero-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+                align-items: center;
             }
 
             .hero-avatar {
-                width: 150px;
-                height: 150px;
+                width: 120px;
+                height: 120px;
+                margin-bottom: 10px;
+            }
+
+            .hero-text {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+                margin-bottom: 8px;
+                text-align: center;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1rem;
+                margin-bottom: 12px;
+                text-align: center;
+            }
+
+            .hero-text .description {
+                max-width: 100%;
+                font-size: 0.9rem;
+                margin: 0 auto 20px auto;
+                text-align: center;
+                line-height: 1.6;
+            }
+
+            /* Main Content Mobile */
+            .main-content {
+                padding: 40px 0;
+            }
+
+            .section {
+                padding: 24px 16px;
+                margin-bottom: 20px;
+                border-radius: 12px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            /* Education Mobile */
+            .education-item {
+                padding: 20px 16px;
+                margin-bottom: 16px;
             }
 
             .education-header {
                 flex-direction: column;
-                gap: 5px;
+                gap: 8px;
+                text-align: center;
             }
 
-            .awards-grid,
+            .education-degree {
+                font-size: 1rem;
+            }
+
+            .education-details {
+                font-size: 0.9rem;
+                text-align: left;
+            }
+
+            /* Awards Grid Mobile */
+            .awards-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .award-item {
+                padding: 20px 16px;
+                text-align: center;
+            }
+
+            /* Research Grid Mobile */
             .research-grid {
                 grid-template-columns: 1fr;
-                gap: 8px;
+                gap: 16px;
             }
 
+            .research-item {
+                padding: 20px 16px;
+                text-align: center;
+            }
+
+            .research-header {
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .research-icon {
+                font-size: 1.8rem;
+            }
+
+            .research-title {
+                font-size: 1rem;
+            }
+
+            .research-description {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                text-align: center;
+            }
+
+            /* Publications Mobile */
+            .publication-item {
+                padding: 20px 16px;
+                margin-bottom: 16px;
+            }
+
+            .publication-title {
+                font-size: 1rem;
+            }
+
+            .publication-authors,
+            .publication-journal {
+                font-size: 0.85rem;
+            }
+
+            /* Contact Info Mobile */
             .contact-info {
                 flex-direction: column;
                 align-items: center;
+                gap: 8px;
+                width: 100%;
+            }
+
+            .contact-item {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+
+            /* Footer Mobile */
+            .footer {
+                padding: 20px 0;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Extra Small Mobile */
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .hero-text .description {
+                font-size: 0.85rem;
+            }
+
+            .section {
+                padding: 20px 12px;
+                margin-bottom: 16px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .contact-item {
+                max-width: 100%;
+                font-size: 0.85rem;
             }
         }
 
