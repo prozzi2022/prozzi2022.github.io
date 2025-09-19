@@ -4,7 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guang Tian - Condensed Matter Physics PhD Student</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.goog        /* Awards & Honors */
+        .awards-grid {
+            dis        /* Publications */
+        .publication-item {
+            background: linear-gradient(135deg, #faf9ff 0%, #f5f3ff 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid #9b59b6;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(155, 89, 182, 0.3), transparent);
+        }
+
+        .publication-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(155, 89, 182, 0.15);
+            border-left-color: #8e44ad;
+        }           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .award-item {
+            background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #e74c3c;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.3), transparent);
+        }
+
+        .award-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.15);
+            border-left-color: #c0392b;
+        }ily=Inter:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -84,48 +140,57 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero Section Updates for better alignment */
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 60px 0 40px;
-            text-align: center;
-            margin-top: 60px;
+            padding: 80px 0 60px;
+            margin-top: 70px;
         }
 
         .hero-content {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 40px;
             flex-wrap: wrap;
+            text-align: left;
+            position: relative;
         }
 
         .hero-avatar {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.25);
+            border: 4px solid rgba(255, 255, 255, 0.3);
             object-fit: cover;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 320px;
         }
 
         .hero-text h1 {
-            font-size: 1.7rem;
-            margin-bottom: 6px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
             font-weight: 700;
+            text-align: left;
         }
 
         .hero-text .subtitle {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            opacity: 0.85;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            text-align: left;
         }
 
         .hero-text .description {
             font-size: 0.95rem;
-            max-width: 340px;
-            margin: 0 auto 16px;
+            max-width: 720px;
+            margin: 0 0 16px 0;
             opacity: 0.8;
             line-height: 1.5;
         }
@@ -133,7 +198,7 @@
         .contact-info {
             display: flex;
             gap: 10px;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
         }
 
@@ -159,22 +224,33 @@
 
         /* Main Content Area */
         .main-content {
-            background: white;
+            background: #fafbfc;
             margin: 0 auto;
-            padding: 36px 0;
+            padding: 60px 0;
         }
 
         .section {
-            margin-bottom: 32px;
+            margin-bottom: 50px;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         }
 
         .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 2rem;
+            font-weight: 700;
             color: #2c3e50;
-            margin-bottom: 18px;
+            margin-bottom: 30px;
             position: relative;
-            padding-bottom: 6px;
+            padding-bottom: 15px;
+            text-align: left;
         }
 
         .section-title::after {
@@ -182,24 +258,38 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 40px;
-            height: 2px;
+            width: 60px;
+            height: 3px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 3px;
         }
 
         /* Education */
         .education-item {
-            background: #f8f9fa;
-            padding: 16px 18px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border-left: 3px solid #3498db;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.3), transparent);
         }
 
         .education-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.15);
+            border-left-color: #2980b9;
         }
 
         .education-header {
@@ -318,34 +408,81 @@
         /* Research Interests */
         .research-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
         .research-item {
-            background: #f8f9fa;
-            padding: 12px 10px 14px 10px;
-            border-radius: 7px;
-            text-align: center;
-            border-top: 3px solid #9b59b6;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, #f0fff4 0%, #f7fffa 100%);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: left;
+            transition: all 0.3s ease;
+            border: 1px solid #e8f5e8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(39, 174, 96, 0.3), transparent);
         }
 
         .research-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.15);
+            border-color: #27ae60;
+        }
+
+        .research-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
         .research-icon {
-            font-size: 2rem;
-            color: #9b59b6;
-            margin-bottom: 8px;
+            font-size: 1.5rem;
+            color: #27ae60;
+            flex-shrink: 0;
         }
 
         .research-title {
             font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 5px;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* Broader Interests - Special styling for consistency */
+        #interests .research-item {
+            background: linear-gradient(135deg, #fff8f0 0%, #fef7ed 100%);
+            border: 1px solid #fed7aa;
+        }
+
+        #interests .research-item::before {
+            background: linear-gradient(90deg, transparent, rgba(251, 146, 60, 0.3), transparent);
+        }
+
+        #interests .research-item:hover {
+            box-shadow: 0 10px 25px rgba(251, 146, 60, 0.15);
+            border-color: #fb923c;
+        }
+
+        #interests .research-icon {
+            color: #ea580c;
+        }
+
+        .research-description {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
         }
 
         .research-description {
@@ -541,60 +678,72 @@
                 
                 <div class="research-grid">
                     <div class="research-item">
-                        <div class="research-icon">
-                            <i class="fas fa-atom"></i>
+                        <div class="research-header">
+                            <div class="research-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <div class="research-title">Topological Materials</div>
                         </div>
-                        <div class="research-title">Topological Materials</div>
                         <div class="research-description">
                             Investigating electronic transport properties and novel quantum effects in topological insulators and topological semimetals
                         </div>
                     </div>
 
                     <div class="research-item">
-                        <div class="research-icon">
-                            <i class="fas fa-magnet"></i>
+                        <div class="research-header">
+                            <div class="research-icon">
+                                <i class="fas fa-magnet"></i>
+                            </div>
+                            <div class="research-title">Magnetic Materials and Magnetism</div>
                         </div>
-                        <div class="research-title">Magnetic Materials and Magnetism</div>
                         <div class="research-description">
                             Exploring anomalous Hall effects, magnetotransport phenomena, and magnetoelectric coupling effects in magnetic materials
                         </div>
                     </div>
 
                     <div class="research-item">
-                        <div class="research-icon">
-                            <i class="fas fa-sync-alt"></i>
+                        <div class="research-header">
+                            <div class="research-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="research-title">Spintronics</div>
                         </div>
-                        <div class="research-title">Spintronics</div>
                         <div class="research-description">
                             Studying spin-related electronic transport phenomena and developing novel spin-based electronic devices
                         </div>
                     </div>
 
                     <div class="research-item">
-                        <div class="research-icon">
-                            <i class="fas fa-thermometer-half"></i>
+                        <div class="research-header">
+                            <div class="research-icon">
+                                <i class="fas fa-thermometer-half"></i>
+                            </div>
+                            <div class="research-title">Low Temperature</div>
                         </div>
-                        <div class="research-title">Low Temperature</div>
                         <div class="research-description">
                             Utilizing low-temperature environments to study intrinsic electrical, magnetic, and thermal properties of materials and quantum phase transitions
                         </div>
                     </div>
 
                     <div class="research-item">
-                        <div class="research-icon">
-                            <i class="fas fa-layer-group"></i>
+                        <div class="research-header">
+                            <div class="research-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="research-title">Thin Film Magnetism</div>
                         </div>
-                        <div class="research-title">Thin Film Magnetism</div>
                         <div class="research-description">
                             Research on preparation, characterization of magnetic thin films and their applications in spintronics
                         </div>
                     </div>
 
                     <div class="research-item">
-                        <div class="research-icon">
-                            <i class="fas fa-microscope"></i>
+                        <div class="research-header">
+                            <div class="research-icon">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <div class="research-title">Thin Films and Nanotechnology</div>
                         </div>
-                        <div class="research-title">Thin Films and Nanotechnology</div>
                         <div class="research-description">
                             Exploring physical properties of nanoscale materials and their potential applications in quantum devices and electronics
                         </div>
@@ -631,25 +780,29 @@
                     <div class="publication-doi"><a href="https://doi.org/10.1103/PhysRevB.107.L060408" class="publication-link" target="_blank">DOI: 10.1103/PhysRevB.107.L060408</a></div>
                 </div>
             </section>
+
+            <!-- Broader Interests -->
+            <section class="section fade-in" id="interests">
+                <h2 class="section-title">Broader Interests</h2>
+                <div class="research-grid">
+                    <div class="research-item">
+                        <div class="research-header">
+                            <div class="research-icon"><i class="fas fa-robot"></i></div>
+                            <div class="research-title">AI Programming</div>
+                        </div>
+                        <div class="research-description">Enthusiastic about AI, large language models, automation, AI agents, and the intersection of AI and scientific research. I enjoy building practical tools and exploring the future of intelligent software.</div>
+                    </div>
+                    <div class="research-item">
+                        <div class="research-header">
+                            <div class="research-icon"><i class="fas fa-coins"></i></div>
+                            <div class="research-title">Venture Capital & Tech Innovation</div>
+                        </div>
+                        <div class="research-description">Keen on technology entrepreneurship, venture capital, and the commercialization of cutting-edge science. Open to early-stage project discussions, investment, and building innovation ecosystems.</div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
-
-    <!-- Broader Interests -->
-    <section class="section fade-in" id="interests">
-        <h2 class="section-title">Broader Interests</h2>
-        <div class="research-grid">
-            <div class="research-item">
-                <div class="research-icon"><i class="fas fa-robot"></i></div>
-                <div class="research-title">AI Programming</div>
-                <div class="research-description">Enthusiastic about AI, large language models, automation, AI agents, and the intersection of AI and scientific research. I enjoy building practical tools and exploring the future of intelligent software.</div>
-            </div>
-            <div class="research-item">
-                <div class="research-icon"><i class="fas fa-coins"></i></div>
-                <div class="research-title">Venture Capital & Tech Innovation</div>
-                <div class="research-description">Keen on technology entrepreneurship, venture capital, and the commercialization of cutting-edge science. Open to early-stage project discussions, investment, and building innovation ecosystems.</div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
