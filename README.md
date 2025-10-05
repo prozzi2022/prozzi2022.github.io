@@ -3,7 +3,6 @@
 ## 🌐 网站地址 / Website
 
 - **主页链接**: [https://prozzi2022.github.io](https://prozzi2022.github.io)
-- **GitHub Pages**: [https://prozzi2022.github.io](https://prozzi2022.github.io)
 
 ## 📧 联系方式 / Contact Information
 
