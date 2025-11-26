@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guang Tian - Photo Album</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #050507;
+            --card-bg: rgba(28, 28, 30, 0.65);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f5f5f7;
+            --text-secondary: #9c9ca2;
+            --accent-color: #0a84ff;
+            --accent-glow: rgba(10, 132, 255, 0.25);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 40%, rgba(41, 151, 255, 0.1), transparent 35%),
+                        radial-gradient(circle at 80% 60%, rgba(255, 149, 0, 0.08), transparent 35%);
+            filter: blur(70px);
+            animation: bgPulse 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgPulse {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 0.85; transform: scale(1.08); }
+        }
+
+        nav {
+            position: sticky;
+            top: 20px;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 900px;
+            background: rgba(15, 15, 18, 0.85);
+            border: 1px solid var(--card-border);
+            border-radius: 999px;
+            padding: 10px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+            z-index: 10;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: #fff; }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 50px auto 100px;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            background: radial-gradient(700px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.18), transparent 45%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .card:hover::before { opacity: 1; }
+        .card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.18); }
+
+        .hero-card { grid-column: span 12; display: flex; flex-direction: column; gap: 16px; }
+        .hero-card h1 { font-size: 2.4rem; font-weight: 700; }
+        .hero-card .subtitle { color: var(--accent-color); letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.85rem; }
+        .hero-card p { color: var(--text-secondary); max-width: 780px; }
+
+        .note {
+            border: 1px dashed rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 16px;
+            font-size: 0.85rem;
+            color: #ced9ff;
+            background: rgba(10, 132, 255, 0.08);
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background: rgba(255,255,255,0.05);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .pill:hover { background: var(--accent-glow); border-color: rgba(10,132,255,0.4); }
+
+        .gallery-card { grid-column: span 12; }
+        .section-title { font-size: 0.95rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; display: flex; gap: 10px; align-items: center; }
+        .section-title i { color: var(--accent-color); }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .gallery-status {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1px dashed rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.02);
+            margin-bottom: 12px;
+        }
+
+        .photo-item {
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.02);
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-item figcaption {
+            padding: 14px 16px 18px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .timeline-card { grid-column: span 12; background: rgba(255,255,255,0.02); }
+        .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+        .timeline-item { border-radius: 16px; padding: 16px; border: 1px solid rgba(255,255,255,0.08); background: rgba(15,15,18,0.8); }
+        .timeline-item h4 { margin-bottom: 6px; font-size: 1rem; }
+        .timeline-item span { font-size: 0.75rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 0.08em; }
+        .timeline-item p { font-size: 0.85rem; color: var(--text-secondary); }
+
+        footer { text-align: center; padding: 50px 0; font-size: 0.75rem; color: #525259; }
+
+        .fade-up { opacity: 0; transform: translateY(18px); filter: blur(5px); transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+        @media (max-width: 768px) {
+            nav { justify-content: center; }
+            .nav-links { display: none; }
+            .wrapper { grid-template-columns: 1fr; }
+            .hero-card h1 { font-size: 2rem; }
+            .photo-item img { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-bg"></div>
+
+    <nav class="fade-up">
+        <a href="index.html" class="logo">Guang Tian</a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#research">Research</a></li>
+            <li><a href="index.html#interests">Interests</a></li>
+        </ul>
+    </nav>
+
+    <main class="wrapper">
+        <section class="card hero-card fade-up">
+            <div class="subtitle">Personal Photo Album</div>
+            <h1>Framing Light, Space, and Stories</h1>
+            <p>
+                Beyond the lab, photography lets me chase fleeting light, minimalist forms, and quiet human moments.
+                Drop any JPG/PNG/WebP files into the <code>photo/</code> folder of the repo (or upload directly in GitHub)
+                and this page will pull them automatically through the GitHub API.
+            </p>
+            <div class="note">
+                只要把照片放进 <code>photo/</code> 相册文件夹并推送，就会自动出现在下面的网格。如果想自定义文字，
+                可选地在同一目录下创建 <code>metadata.json</code>（示例见代码注释），写入标题或拍摄地点。
+            </div>
+            <div class="contact-row">
+                <a href="index.html#about" class="pill"><i class="fas fa-arrow-left"></i> Back to homepage</a>
+                <a href="mailto:tianguang@stu.pku.edu.cn" class="pill"><i class="fas fa-share"></i> Request prints</a>
+            </div>
+        </section>
+
+        <section class="card gallery-card fade-up">
+            <div class="section-title"><i class="fas fa-camera-retro"></i> Featured Shots</div>
+            <div class="gallery-status" aria-live="polite">正在读取 photo/ 相册中的作品...</div>
+            <div class="gallery-grid" id="gallery-grid" hidden></div>
+        </section>
+
+        <section class="card timeline-card fade-up">
+            <div class="section-title"><i class="fas fa-map-signs"></i> Field Notes</div>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <span>2025 · Lhasa</span>
+                    <h4>High-altitude portrait study</h4>
+                    <p>Experimented with medium-format film to capture the way prayer flags scatter light.</p>
+                </div>
+                <div class="timeline-item">
+                    <span>2024 · Dunhuang</span>
+                    <h4>Night sky motion series</h4>
+                    <p>Stacked 40+ exposures to trace subtle star colors above desert dunes.</p>
+                </div>
+                <div class="timeline-item">
+                    <span>2023 · Beijing</span>
+                    <h4>Subway candids</h4>
+                    <p>Documented transient moments on Line 4 to study rhythm, gesture, and color.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Guang Tian · Photo Collection</p>
+    </footer>
+
+    <script>
+        document.addEventListener('mousemove', e => {
+            document.querySelectorAll('.card').forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // --- 动态加载 photo/ 目录内的图片 ---
+        const galleryGrid = document.getElementById('gallery-grid');
+        const statusBox = document.querySelector('.gallery-status');
+        const repoOwner = 'prozzi2022';
+        const repoName = 'prozzi2022.github.io';
+        const photoApi = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/photo`;
+        const metadataUrl = 'photo/metadata.json'; // optional: { "IMG_001.jpg": { "caption": "Lake at dawn" } }
+        const validExt = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+
+        const prettify = name => name
+            .replace(/\.[^.]+$/, '')
+            .replace(/[_-]+/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .replace(/\b\w/g, ch => ch.toUpperCase());
+
+        const renderFigure = (file, metadata) => {
+            const figure = document.createElement('figure');
+            figure.className = 'photo-item';
+
+            const img = document.createElement('img');
+            img.src = file.download_url;
+            img.alt = metadata.alt || prettify(file.name);
+
+            const caption = document.createElement('figcaption');
+            caption.textContent = metadata.caption || metadata.alt || prettify(file.name);
+
+            figure.appendChild(img);
+            figure.appendChild(caption);
+            galleryGrid.appendChild(figure);
+        };
+
+        const fetchMetadata = async () => {
+            try {
+                const res = await fetch(metadataUrl, { cache: 'no-store' });
+                if (!res.ok) { return {}; }
+                return await res.json();
+            } catch (err) {
+                return {};
+            }
+        };
+
+        const loadPhotos = async () => {
+            try {
+                const [meta, res] = await Promise.all([
+                    fetchMetadata(),
+                    fetch(photoApi, {
+                        headers: { 'Accept': 'application/vnd.github+json' }
+                    })
+                ]);
+
+                if (!res.ok) {
+                    throw new Error(`GitHub API ${res.status}`);
+                }
+
+                const files = (await res.json())
+                    .filter(item => item.type === 'file' && validExt.some(ext => item.name.toLowerCase().endsWith(ext)))
+                    .sort((a, b) => b.name.localeCompare(a.name));
+
+                if (!files.length) {
+                    statusBox.textContent = '尚未检测到照片，请将作品放入 photo/ 目录后重新加载。';
+                    return;
+                }
+
+                galleryGrid.hidden = false;
+                statusBox.remove();
+                files.forEach(file => renderFigure(file, meta[file.name] || {}));
+            } catch (error) {
+                console.error(error);
+                statusBox.innerHTML = '无法读取 GitHub 相册列表，可检查网络，或直接在 <code>gallery.html</code> 中手动添加图片。';
+            }
+        };
+
+        loadPhotos();
+    </script>
+</body>
+</html>
