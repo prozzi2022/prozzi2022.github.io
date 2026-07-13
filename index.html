@@ -3,14 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guang Tian - Condensed Matter Physics PhD Student</title>
-    
-    <!-- 引入 Inter 字体 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- 引入图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Guang Tian | Quantum Transport &amp; Topological Materials</title>
+    <meta name="description" content="Guang Tian is a condensed matter physics PhD student at Peking University (PKU) studying quantum transport, Hall effects, and topological magnetic materials.">
+    <meta name="author" content="Guang Tian">
+    <meta name="theme-color" content="#050507">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://prozzi2022.github.io/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Guang Tian | Quantum Transport &amp; Topological Materials">
+    <meta property="og:description" content="Condensed matter physics PhD student at Peking University (PKU) studying quantum transport, Hall effects, and topological magnetic materials.">
+    <meta property="og:url" content="https://prozzi2022.github.io/">
+    <meta property="og:image" content="https://github.com/prozzi2022.png?size=1200">
+    <meta property="og:image:alt" content="Portrait of Guang Tian">
+    <meta property="profile:first_name" content="Guang">
+    <meta property="profile:last_name" content="Tian">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Guang Tian | Quantum Transport &amp; Topological Materials">
+    <meta name="twitter:description" content="Condensed matter physics PhD student at Peking University (PKU).">
+    <meta name="twitter:image" content="https://github.com/prozzi2022.png?size=1200">
+
+    <script>document.documentElement.classList.add('js');</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Guang Tian",
+      "url": "https://prozzi2022.github.io/",
+      "image": "https://github.com/prozzi2022.png?size=460",
+      "email": "mailto:tianguang@stu.pku.edu.cn",
+      "jobTitle": "PhD Student in Condensed Matter Physics",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Peking University",
+        "alternateName": "PKU",
+        "url": "https://www.pku.edu.cn/"
+      },
+      "knowsAbout": [
+        "Quantum transport",
+        "Topological materials",
+        "Magnetic materials",
+        "Hall effects",
+        "Spintronics"
+      ],
+      "sameAs": [
+        "https://github.com/prozzi2022",
+        "https://www.researchgate.net/profile/Guang-Tian-5"
+      ]
+    }
+    </script>
 
     <style>
         :root {
@@ -26,14 +68,42 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-primary);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
+
+        a:focus-visible {
+            outline: 3px solid rgba(10, 132, 255, 0.8);
+            outline-offset: 4px;
+            border-radius: 6px;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 2000;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: var(--text-primary);
+            color: var(--bg-color);
+            font-weight: 700;
+            text-decoration: none;
+            transform: translateY(-150%);
+            transition: transform 0.2s ease;
+        }
+
+        .skip-link:focus { transform: translateY(0); }
 
         /* 动态背景光斑 */
         .ambient-bg {
@@ -103,8 +173,9 @@
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             gap: 16px; /* 紧凑间距 */
-            auto-rows: minmax(auto, auto);
         }
+
+        section[id] { scroll-margin-top: 100px; }
 
         /* 通用卡片样式 */
         .card {
@@ -121,27 +192,16 @@
         .card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 20px;
-            padding: 1px; /* 边框宽度 */
-            background: radial-gradient(
-                800px circle at var(--mouse-x) var(--mouse-y),
-                rgba(255, 255, 255, 0.15),
-                transparent 40%
-            );
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(700px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.18), transparent 45%);
             opacity: 0;
-            transition: opacity 0.5s;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
         }
-        
+
         .card:hover::before { opacity: 1; }
-        .card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.1); }
+        .card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.18); }
 
         .section-title {
             font-size: 1rem;
@@ -154,7 +214,15 @@
             align-items: center;
             gap: 8px;
         }
-        .section-title i { color: var(--accent-color); }
+        .section-title::before {
+            content: '';
+            width: 9px;
+            height: 9px;
+            border: 2px solid var(--accent-color);
+            border-radius: 3px;
+            transform: rotate(45deg);
+            flex: 0 0 auto;
+        }
 
         /* --- 区域 1: 个人简介 (Hero) --- */
         .hero-card {
@@ -182,9 +250,10 @@
         .contact-row { display: flex; gap: 10px; flex-wrap: wrap; }
         .pill {
             background: rgba(255,255,255,0.05);
-            padding: 6px 14px;
+            min-height: 40px;
+            padding: 8px 14px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-primary);
             text-decoration: none;
             display: flex;
@@ -194,6 +263,8 @@
             border: 1px solid transparent;
         }
         .pill:hover { background: var(--accent-glow); border-color: rgba(10,132,255,0.3); transform: scale(1.05); }
+        .pill-primary { background: #006dcc; color: #fff; }
+        .pill-primary:hover { background: #0063b9; border-color: rgba(255,255,255,0.2); }
 
         /* --- 区域 2: 教育 --- */
         .edu-card { grid-column: span 12; }
@@ -204,11 +275,13 @@
         .edu-desc { margin-top: 12px; font-size: 0.9rem; color: var(--text-secondary); }
 
         /* --- 区域 3: 研究兴趣 (Compact Grid) --- */
-        .research-section { grid-column: span 8; }
+        .research-section { grid-column: span 8; display: flex; flex-direction: column; }
         .interest-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 1fr;
             gap: 12px;
+            flex: 1;
         }
         .interest-item {
             background: rgba(255,255,255,0.02);
@@ -219,7 +292,15 @@
         }
         .interest-item:hover { background: rgba(255,255,255,0.05); }
         .interest-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-        .interest-header i { color: var(--accent-color); font-size: 0.9rem; }
+        .interest-header::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.12);
+            flex: 0 0 auto;
+        }
         .interest-header span { font-weight: 600; font-size: 0.9rem; }
         .interest-p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; }
 
@@ -237,7 +318,7 @@
         }
         .award-row:hover { background: rgba(255,255,255,0.06); transform: translateX(5px); }
         .award-year { font-size: 0.75rem; color: var(--accent-color); font-weight: 700; min-width: 35px; }
-        .award-info h4 { font-size: 0.85rem; font-weight: 500; margin-bottom: 2px; }
+        .award-info h3 { font-size: 0.85rem; font-weight: 500; margin-bottom: 2px; }
         .award-info p { font-size: 0.75rem; color: var(--text-secondary); }
 
         /* --- 区域 5: 论文 --- */
@@ -252,11 +333,31 @@
         }
         .pub-item:hover { background: rgba(255,255,255,0.05); padding-left: 20px; }
         .pub-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; color: #e1e1e3; }
+        .pub-title a { color: inherit; text-decoration: none; }
+        .pub-title a:hover, .pub-title a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
         .pub-authors { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; }
-        .pub-meta { display: flex; gap: 12px; font-size: 0.8rem; align-items: center; }
+        .pub-meta { display: flex; gap: 12px; font-size: 0.8rem; align-items: center; flex-wrap: wrap; }
         .journal { color: var(--accent-color); font-weight: 500; }
-        .doi { color: var(--text-secondary); text-decoration: none; font-weight: 600; opacity: 0.7; }
-        .doi:hover { opacity: 1; text-decoration: underline; }
+        cite.journal { font-style: normal; }
+        .publication-badge {
+            color: #ffd28a;
+            background: rgba(255, 159, 10, 0.12);
+            border: 1px solid rgba(255, 159, 10, 0.22);
+            border-radius: 999px;
+            padding: 2px 8px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+        .doi {
+            color: #8fc7ff;
+            background: rgba(10, 132, 255, 0.1);
+            border: 1px solid rgba(10, 132, 255, 0.24);
+            border-radius: 999px;
+            padding: 3px 9px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .doi:hover { color: #fff; background: rgba(10, 132, 255, 0.2); border-color: rgba(10, 132, 255, 0.42); }
 
         /* --- 区域 6: 广泛兴趣 --- */
         .broader-section { grid-column: span 12; }
@@ -267,26 +368,28 @@
             padding: 20px;
             border-radius: 16px;
         }
-        .broader-item i { color: #ff9f0a; margin-bottom: 10px; font-size: 1.2rem; }
-        .broader-item h4 { margin-bottom: 6px; font-size: 1rem; }
+        .broader-item::before { content: ''; display: block; width: 22px; height: 3px; margin-bottom: 14px; border-radius: 999px; background: #ff9f0a; }
+        .broader-item h3 { margin-bottom: 6px; font-size: 1rem; }
         .broader-item p { font-size: 0.85rem; color: var(--text-secondary); }
+        .broader-item a { color: #ffb340; text-underline-offset: 3px; }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 40px 0;
             font-size: 0.75rem;
-            color: #444;
+            color: var(--text-secondary);
         }
 
         /* 动画类 */
-        .fade-up {
+        .fade-up { opacity: 1; transform: none; filter: none; }
+        .js .fade-up {
             opacity: 0;
             transform: translateY(20px);
             filter: blur(5px);
-            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1), transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), filter 0.8s cubic-bezier(0.2, 1, 0.3, 1);
         }
-        .fade-up.visible {
+        .js .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
             filter: blur(0);
@@ -294,271 +397,276 @@
 
         /* 移动端适配 */
         @media (max-width: 768px) {
+            html { scroll-padding-top: 82px; }
+            .ambient-bg { filter: blur(40px); animation: none; }
             .wrapper { grid-template-columns: 1fr; display: flex; flex-direction: column; }
-            .hero-card { flex-direction: column; text-align: center; }
+            .wrapper { margin-top: 28px; padding: 0 14px; }
+            .card { padding: 22px; }
+            .hero-card { flex-direction: column; text-align: center; gap: 22px; }
+            .avatar { width: 104px; height: 104px; }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content .bio { font-size: 0.95rem; }
             .contact-row { justify-content: center; }
             .interest-grid, .broader-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            nav { justify-content: center; }
+            nav {
+                top: 10px;
+                width: calc(100% - 24px);
+                padding: 8px 12px;
+                border-radius: 18px;
+                gap: 16px;
+                justify-content: flex-start;
+            }
+            .logo { flex: 0 0 auto; }
+            .nav-links {
+                flex: 1;
+                gap: 14px;
+                overflow-x: auto;
+                overscroll-behavior-inline: contain;
+                scrollbar-width: none;
+            }
+            .nav-links::-webkit-scrollbar { display: none; }
+            .nav-links a { display: inline-flex; align-items: center; min-height: 40px; white-space: nowrap; }
+            .interest-p, .award-info p, .broader-item p { font-size: 0.9rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .ambient-bg { animation: none; }
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+            .js .fade-up { opacity: 1; transform: none; filter: none; }
         }
     </style>
 </head>
-<body>
-    <div class="ambient-bg"></div>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="ambient-bg" aria-hidden="true"></div>
 
     <!-- 导航 -->
-    <nav class="fade-up">
-        <a href="#" class="logo">Guang Tian</a>
+    <nav aria-label="Primary navigation">
+        <a href="#top" class="logo">Guang Tian</a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#awards">Awards</a></li>
             <li><a href="#research">Research</a></li>
             <li><a href="#publications">Publications</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#awards">Honors</a></li>
             <li><a href="gallery.html">Album</a></li>
         </ul>
     </nav>
 
     <!-- 主要内容网格 -->
-    <div class="wrapper">
-        
+    <main class="wrapper" id="main-content">
+
         <!-- 1. 个人简介 (Compact Hero) -->
-        <div class="card hero-card fade-up" id="about">
-            <img src="https://github.com/prozzi2022.png" alt="Avatar" class="avatar">
+        <section class="card hero-card" id="about" aria-labelledby="hero-heading">
+            <img src="https://github.com/prozzi2022.png?size=240" alt="Portrait of Guang Tian" class="avatar" width="120" height="120" decoding="async" fetchpriority="high">
             <div class="hero-content">
-                <h1>Guang Tian</h1>
-                <div class="subtitle">PhD Student in Condensed Matter Physics · Peking University</div>
+                <h1 id="hero-heading">Guang Tian</h1>
+                <div class="subtitle">PhD Student in Condensed Matter Physics · Peking University (PKU)</div>
                 <div class="bio">
-                    Passionate about exploring the nature of matter, and also enthusiastic about driving innovation through code and capital. Currently focusing on the transport, magnetic, and thermal properties of topological materials.
+                    PhD student in Prof. Xiaosong Wu's group at Peking University (PKU). I study nonlinear and Hall transport in topological and magnetic quantum materials using low-temperature electrical, magnetic, and thermal measurements.
                     <br><br>
-                    <strong>Collaboration:</strong> Looking for collaborators on topological magnetic materials, AI projects, and early-stage tech ventures.
+                    <strong>Collaboration:</strong> Open to research collaborations in quantum transport and magnetic topological materials.
                 </div>
                 <div class="contact-row">
-                    <a href="mailto:tianguang@stu.pku.edu.cn" class="pill"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="https://www.xiaohongshu.com/user/profile/5f0d1bdc0000000001000269" target="_blank" class="pill"><i class="fas fa-book"></i> Rednote</a>
-                    <a href="https://github.com/prozzi2022" target="_blank" class="pill"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.researchgate.net/profile/Guang-Tian-5" target="_blank" class="pill"><i class="fas fa-graduation-cap"></i> ResearchGate</a>
-                    <a href="https://www.phy.pku.edu.cn/" target="_blank" class="pill"><i class="fas fa-university"></i> PKU Physics</a>
+                    <a href="#publications" class="pill pill-primary">View publications</a>
+                    <a href="mailto:tianguang@stu.pku.edu.cn" class="pill">Email</a>
+                    <a href="https://github.com/prozzi2022" target="_blank" rel="noopener noreferrer" class="pill">GitHub</a>
+                    <a href="https://www.xiaohongshu.com/user/profile/5f0d1bdc0000000001000269" target="_blank" rel="noopener noreferrer" class="pill">RedNote</a>
+                    <a href="https://www.researchgate.net/profile/Guang-Tian-5" target="_blank" rel="noopener noreferrer" class="pill">ResearchGate</a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 2. 教育背景 -->
-        <div class="card edu-card fade-up" id="education">
-            <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
-            <div class="edu-grid">
-                <div>
-                    <div class="degree">Ph.D. in Condensed Matter and Material Physics</div>
-                    <div class="school">Department of Physics, Peking University</div>
-                </div>
-                <div class="time">Sep 2022 - Jun 2027</div>
-            </div>
-            <div class="edu-desc">
-                <strong>Advisor:</strong> Prof. Xiaosong Wu (Xiaosong Wu's Lab) | <strong>Focus:</strong> Topological & Magnetic Materials
-                <br>By measuring electrical, magnetic and thermal properties of topological insulators, topological semimetals and other materials to understand electronic properties and transport laws.
-            </div>
-        </div>
-
-        <!-- 3. 研究兴趣 (左侧 2/3) -->
-        <div class="card research-section fade-up" id="research">
-            <div class="section-title"><i class="fas fa-microscope"></i> Research Interests</div>
+        <!-- 2. 研究方向 (左侧 2/3) -->
+        <section class="card research-section fade-up" id="research" aria-labelledby="research-heading">
+            <h2 class="section-title" id="research-heading">Research Focus</h2>
             <div class="interest-grid">
                 <div class="interest-item">
-                    <div class="interest-header"><i class="fas fa-atom"></i> <span>Topological Materials</span></div>
-                    <div class="interest-p">Investigating electronic transport properties and novel quantum effects.</div>
+                    <div class="interest-header"><span>Nonlinear Quantum Transport</span></div>
+                    <div class="interest-p">Third-order and magneto-nonlinear responses linked to quantum geometry and disorder.</div>
                 </div>
                 <div class="interest-item">
-                    <div class="interest-header"><i class="fas fa-magnet"></i> <span>Magnetic Materials</span></div>
-                    <div class="interest-p">Exploring anomalous Hall effects and magnetotransport phenomena.</div>
+                    <div class="interest-header"><span>Hall Effects in Topological Magnets</span></div>
+                    <div class="interest-p">Anomalous and in-plane Hall transport in kagome and Weyl magnetic materials.</div>
                 </div>
                 <div class="interest-item">
-                    <div class="interest-header"><i class="fas fa-sync-alt"></i> <span>Spintronics</span></div>
-                    <div class="interest-p">Studying spin-related electronic transport and novel spin-based devices.</div>
+                    <div class="interest-header"><span>Low-Temperature Magnetotransport</span></div>
+                    <div class="interest-p">Electrical and magnetic measurements across temperature, field, and angle.</div>
                 </div>
                 <div class="interest-item">
-                    <div class="interest-header"><i class="fas fa-thermometer-half"></i> <span>Low Temperature</span></div>
-                    <div class="interest-p">Using low-temp environments to study intrinsic physical properties.</div>
-                </div>
-                <div class="interest-item">
-                    <div class="interest-header"><i class="fas fa-layer-group"></i> <span>Thin Film Magnetism</span></div>
-                    <div class="interest-p">Preparation and characterization of magnetic thin films.</div>
-                </div>
-                <div class="interest-item">
-                    <div class="interest-header"><i class="fas fa-microchip"></i> <span>Nanotechnology</span></div>
-                    <div class="interest-p">Exploring physical properties of nanoscale materials.</div>
+                    <div class="interest-header"><span>Thermal Transport</span></div>
+                    <div class="interest-p">Thermal probes of electronic and magnetic excitations in quantum materials.</div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- 4. 奖项 (右侧 1/3) -->
-        <div class="card awards-section fade-up" id="awards">
-            <div class="section-title"><i class="fas fa-trophy"></i> Honors</div>
+        <section class="card awards-section fade-up" id="awards" aria-labelledby="honors-heading">
+            <h2 class="section-title" id="honors-heading">Honors</h2>
             <div class="award-list">
                 <div class="award-row">
                     <div class="award-year">2022</div>
                     <div class="award-info">
-                        <h4>Presidential Scholarship</h4>
+                        <h3>Presidential Scholarship</h3>
                         <p>For PhD Students</p>
                     </div>
                 </div>
                 <div class="award-row">
                     <div class="award-year">2022</div>
                     <div class="award-info">
-                        <h4>Outstanding Graduate</h4>
+                        <h3>Outstanding Graduate</h3>
                         <p>Beijing Municipal</p>
                     </div>
                 </div>
                 <div class="award-row">
                     <div class="award-year">2022</div>
                     <div class="award-info">
-                        <h4>Outstanding Thesis</h4>
+                        <h3>Outstanding Thesis</h3>
                         <p>Undergraduate</p>
                     </div>
                 </div>
                 <div class="award-row">
                     <div class="award-year">2021</div>
                     <div class="award-info">
-                        <h4>Challenge Cup Silver</h4>
+                        <h3>Challenge Cup Silver</h3>
                         <p>National Innovation</p>
                     </div>
                 </div>
                 <div class="award-row">
                     <div class="award-year">2019</div>
                     <div class="award-info">
-                        <h4>National Scholarship</h4>
+                        <h3>National Scholarship</h3>
                         <p>Top Academic Performance</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- 5. 论文 -->
-        <div class="card pub-section fade-up" id="publications">
-            <div class="section-title"><i class="fas fa-book-open"></i> Selected Publications</div>
+        <section class="card pub-section fade-up" id="publications" aria-labelledby="publications-heading">
+            <h2 class="section-title" id="publications-heading">Selected Publications</h2>
             <div class="pub-grid">
                 <!-- P1 -->
-                <div class="pub-item">
-                    <div class="pub-title">Magnetic field tunable third-order nonlinear transport in a heterodimensional superlattice</div>
-                    <div class="pub-authors">Shi, Hengjie... <strong>Guang Tian</strong>... Wu, Xiaosong</div>
+                <article class="pub-item">
+                    <h3 class="pub-title"><a href="https://doi.org/10.1103/n391-ns5v" target="_blank" rel="noopener noreferrer">Magnetic field tunable third-order nonlinear transport in a heterodimensional superlattice</a></h3>
+                    <div class="pub-authors">H. Shi, X. Feng, L. Wang, H. Chen, B. Jiang, H. Wang, <strong>G. Tian</strong>, et al.</div>
                     <div class="pub-meta">
-                        <span class="journal">Phys. Rev. B 111(23)</span>
-                        <span class="date">June 2025</span>
-                        <a href="https://doi.org/10.1103/n391-ns5v" target="_blank" class="doi">DOI</a>
+                        <cite class="journal">Phys. Rev. B 111, 235434 (2025)</cite>
+                        <time class="date" datetime="2025-06-16">June 2025</time>
+                        <a href="https://doi.org/10.1103/n391-ns5v" target="_blank" rel="noopener noreferrer" class="doi" aria-label="Open article: Magnetic field tunable third-order nonlinear transport">View article ↗</a>
                     </div>
-                </div>
+                </article>
                 <!-- P2 -->
-                <div class="pub-item">
-                    <div class="pub-title">In-plane Hall effect in Co₃Sn₂S₂</div>
-                    <div class="pub-authors">Wang, Lujunyu; <strong>Guang Tian</strong>... Wu, Xiaosong</div>
+                <article class="pub-item">
+                    <h3 class="pub-title"><a href="https://doi.org/10.1103/PhysRevB.111.054412" target="_blank" rel="noopener noreferrer">In-plane Hall effect in Co₃Sn₂S₂</a></h3>
+                    <div class="pub-authors">L. Wang, <strong>G. Tian</strong>, H. Chen, J. Zhao, H. Shi, H. Wang, Z. Li, and X. Wu</div>
                     <div class="pub-meta">
-                        <span class="journal">Phys. Rev. B 111(5)</span>
-                        <span class="date">Feb 2025</span>
-                        <a href="https://doi.org/10.1103/PhysRevB.111.054412" target="_blank" class="doi">DOI</a>
+                        <cite class="journal">Phys. Rev. B 111, 054412 (2025)</cite>
+                        <time class="date" datetime="2025-02-07">February 2025</time>
+                        <a href="https://doi.org/10.1103/PhysRevB.111.054412" target="_blank" rel="noopener noreferrer" class="doi" aria-label="Open article: In-plane Hall effect in Co3Sn2S2">View article ↗</a>
                     </div>
-                </div>
+                </article>
                 <!-- P3 -->
-                <div class="pub-item">
-                    <div class="pub-title">Orbital Magneto-Nonlinear Anomalous Hall Effect in Kagome Magnet Fe₃Sn₂</div>
-                    <div class="pub-authors">Wang, Lujunyu... <strong>Guang Tian</strong>... Wu, Xiaosong</div>
+                <article class="pub-item featured-publication">
+                    <h3 class="pub-title"><a href="https://doi.org/10.1103/PhysRevLett.132.106601" target="_blank" rel="noopener noreferrer">Orbital Magneto-Nonlinear Anomalous Hall Effect in Kagome Magnet Fe₃Sn₂</a></h3>
+                    <div class="pub-authors">L. Wang, J. Zhu, H. Chen, H. Wang, J. Liu, Y.-X. Huang, B. Jiang, J. Zhao, H. Shi, <strong>G. Tian</strong>, et al.</div>
                     <div class="pub-meta">
-                        <span class="journal">Phys. Rev. Lett. 132(10)</span>
-                        <span class="date">Mar 2024</span>
-                        <a href="https://doi.org/10.1103/PhysRevLett.132.106601" target="_blank" class="doi">DOI</a>
+                        <cite class="journal">Phys. Rev. Lett. 132, 106601 (2024)</cite>
+                        <span class="publication-badge">Editors' Suggestion</span>
+                        <time class="date" datetime="2024-03-06">March 2024</time>
+                        <a href="https://doi.org/10.1103/PhysRevLett.132.106601" target="_blank" rel="noopener noreferrer" class="doi" aria-label="Open article: Orbital Magneto-Nonlinear Anomalous Hall Effect">View article ↗</a>
                     </div>
-                </div>
+                </article>
                 <!-- P4 -->
-                <div class="pub-item">
-                    <div class="pub-title">Magnetotransport induced by anomalous Hall effect</div>
-                    <div class="pub-authors">Zhao, Jiaji... <strong>Guang Tian</strong>... Wu, Xiaosong</div>
+                <article class="pub-item">
+                    <h3 class="pub-title"><a href="https://doi.org/10.1103/PhysRevB.107.L060408" target="_blank" rel="noopener noreferrer">Magnetotransport induced by anomalous Hall effect</a></h3>
+                    <div class="pub-authors">J. Zhao, B. Jiang, J. Yang, L. Wang, H. Shi, <strong>G. Tian</strong>, Z. Li, E. Liu, and X. Wu</div>
                     <div class="pub-meta">
-                        <span class="journal">Phys. Rev. B 107(6)</span>
-                        <span class="date">Feb 2023</span>
-                        <a href="https://doi.org/10.1103/PhysRevB.107.L060408" target="_blank" class="doi">DOI</a>
+                        <cite class="journal">Phys. Rev. B 107, L060408 (2023)</cite>
+                        <time class="date" datetime="2023-02-17">February 2023</time>
+                        <a href="https://doi.org/10.1103/PhysRevB.107.L060408" target="_blank" rel="noopener noreferrer" class="doi" aria-label="Open article: Magnetotransport induced by anomalous Hall effect">View article ↗</a>
                     </div>
-                </div>
+                </article>
             </div>
-        </div>
+        </section>
+
+        <!-- 5. 教育背景 -->
+        <section class="card edu-card fade-up" id="education" aria-labelledby="education-heading">
+            <h2 class="section-title" id="education-heading">Education</h2>
+            <div class="edu-grid">
+                <div>
+                    <div class="degree">Ph.D. in Condensed Matter and Material Physics</div>
+                    <div class="school">Department of Physics, Peking University</div>
+                </div>
+                <time class="time" datetime="2022-09">September 2022 – June 2027</time>
+            </div>
+            <p class="edu-desc">
+                <strong>Advisor:</strong> Prof. Xiaosong Wu · <strong>Focus:</strong> topological and magnetic quantum materials.<br>
+                I use electrical, magnetic, and thermal transport measurements to probe topological insulators, topological semimetals, and magnetic quantum materials.
+            </p>
+        </section>
 
         <!-- 6. 广泛兴趣 -->
-        <div class="card broader-section fade-up" id="interests">
-            <div class="section-title"><i class="fas fa-lightbulb"></i> Broader Interests</div>
+        <section class="card broader-section fade-up" id="interests" aria-labelledby="interests-heading">
+            <h2 class="section-title" id="interests-heading">Beyond Research</h2>
             <div class="broader-grid">
                 <div class="broader-item">
-                    <i class="fas fa-robot"></i>
-                    <h4>AI Programming</h4>
-                    <p>Enthusiastic about AI, LLMs, automation, AI agents, and the intersection of AI and scientific research.</p>
+                    <h3>AI for Science</h3>
+                    <p>Exploring LLMs, automation, and practical ways to improve scientific research workflows.</p>
                 </div>
                 <div class="broader-item">
-                    <i class="fas fa-coins"></i>
-                    <h4>Venture Capital</h4>
-                    <p>Keen on tech entrepreneurship, VC, and commercialization of cutting-edge science. Open to early-stage discussions.</p>
+                    <h3>Technology &amp; Venture</h3>
+                    <p>Interested in scientific entrepreneurship and the path from fundamental research to useful technology.</p>
                 </div>
                 <div class="broader-item">
-                    <i class="fas fa-camera-retro"></i>
-                    <h4>Photography</h4>
-                    <p>Enjoy capturing experimental setups, urban geometry, and long-exposure landscapes that echo physics intuitions.</p>
+                    <h3>Photography</h3>
+                    <p>Observing light, geometry, and everyday moments beyond the lab. <a href="gallery.html">View the album</a>.</p>
                 </div>
                 <div class="broader-item">
-                    <i class="fas fa-person-hiking"></i>
-                    <h4>Hiking</h4>
-                    <p>Weekend hikes keep me grounded and double as scouting trips for future shots and instrumentation inspiration.</p>
+                    <h3>Hiking</h3>
+                    <p>Time outdoors provides a deliberate counterpoint to research and screen-heavy work.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </div>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Guang Tian. Last updated: September 2025</p>
+        <p>&copy; 2026 Guang Tian · Built as a lightweight static site</p>
     </footer>
 
     <script>
-        // 1. 聚光灯效果脚本
-        document.addEventListener('mousemove', e => {
-            document.querySelectorAll('.card').forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
+        const cards = document.querySelectorAll('.card');
+        const finePointer = window.matchMedia('(pointer: fine)').matches;
 
-        // 2. 滚动入场动画
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    // 增加一点点延迟，让它们看起来是依次出来的
-                    setTimeout(() => {
+        if (finePointer) {
+            cards.forEach(card => {
+                card.addEventListener('pointermove', event => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`);
+                    card.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);
+                });
+            });
+        }
+
+        const animatedElements = document.querySelectorAll('.fade-up');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!reduceMotion && 'IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                    }, index * 100); 
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-up').forEach(el => {
-            observer.observe(el);
-        });
-
-        // 3. 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    // 考虑到 sticky nav 的高度
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }
-            });
-        });
+            animatedElements.forEach(element => observer.observe(element));
+        } else {
+            animatedElements.forEach(element => element.classList.add('visible'));
+        }
     </script>
 </body>
 </html>
