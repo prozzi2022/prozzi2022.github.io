@@ -198,6 +198,8 @@
         }
 
         .pill:hover { background: var(--accent-glow); border-color: rgba(10,132,255,0.4); }
+        .email-text { cursor: text; user-select: all; }
+        .email-text:hover { background: rgba(255,255,255,0.05); border-color: transparent; }
 
         .gallery-card { grid-column: span 12; }
         .section-title { font-size: 0.95rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; display: flex; gap: 10px; align-items: center; }
@@ -280,7 +282,7 @@
         <ul class="nav-links">
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#research">Research</a></li>
-            <li><a href="index.html#publications">Publications</a></li>
+            <li><a href="index.html#publications">Outputs</a></li>
         </ul>
     </nav>
 
@@ -293,7 +295,7 @@
             </p>
             <div class="contact-row">
                 <a href="index.html#about" class="pill">← Back to homepage</a>
-                <a href="mailto:tianguang@stu.pku.edu.cn" class="pill">Get in touch</a>
+                <span class="pill email-text">tianguang@stu.pku.edu.cn</span>
             </div>
         </section>
 

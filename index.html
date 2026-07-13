@@ -263,8 +263,8 @@
             border: 1px solid transparent;
         }
         .pill:hover { background: var(--accent-glow); border-color: rgba(10,132,255,0.3); transform: scale(1.05); }
-        .pill-primary { background: #006dcc; color: #fff; }
-        .pill-primary:hover { background: #0063b9; border-color: rgba(255,255,255,0.2); }
+        .email-text { cursor: text; user-select: all; }
+        .email-text:hover { background: rgba(255,255,255,0.05); border-color: transparent; transform: none; }
 
         /* --- 区域 2: 教育 --- */
         .edu-card { grid-column: span 12; }
@@ -323,6 +323,8 @@
 
         /* --- 区域 5: 论文 --- */
         .pub-section { grid-column: span 12; }
+        .output-group + .output-group { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); }
+        .output-group-title { font-size: 0.9rem; font-weight: 600; color: #c7c7cc; margin-bottom: 12px; }
         .pub-grid { display: grid; gap: 12px; }
         .pub-item {
             padding: 16px;
@@ -332,6 +334,8 @@
             border-left: 3px solid var(--accent-color);
         }
         .pub-item:hover { background: rgba(255,255,255,0.05); padding-left: 20px; }
+        .patent-item { border-left-color: #ff9f0a; }
+        .patent-item .journal { color: #ffb340; }
         .pub-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; color: #e1e1e3; }
         .pub-title a { color: inherit; text-decoration: none; }
         .pub-title a:hover, .pub-title a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
@@ -447,7 +451,7 @@
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#research">Research</a></li>
-            <li><a href="#publications">Publications</a></li>
+            <li><a href="#publications">Outputs</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#awards">Honors</a></li>
             <li><a href="gallery.html">Album</a></li>
@@ -469,8 +473,7 @@
                     <strong>Collaboration:</strong> Open to research collaborations in quantum transport and magnetic topological materials.
                 </div>
                 <div class="contact-row">
-                    <a href="#publications" class="pill pill-primary">View publications</a>
-                    <a href="mailto:tianguang@stu.pku.edu.cn" class="pill">Email</a>
+                    <span class="pill email-text">tianguang@stu.pku.edu.cn</span>
                     <a href="https://github.com/prozzi2022" target="_blank" rel="noopener noreferrer" class="pill">GitHub</a>
                     <a href="https://www.xiaohongshu.com/user/profile/5f0d1bdc0000000001000269" target="_blank" rel="noopener noreferrer" class="pill">RedNote</a>
                     <a href="https://www.researchgate.net/profile/Guang-Tian-5" target="_blank" rel="noopener noreferrer" class="pill">ResearchGate</a>
@@ -543,13 +546,15 @@
             </div>
         </section>
 
-        <!-- 5. 论文 -->
+        <!-- 5. 研究成果 -->
         <section class="card pub-section fade-up" id="publications" aria-labelledby="publications-heading">
-            <h2 class="section-title" id="publications-heading">Selected Publications</h2>
-            <div class="pub-grid">
+            <h2 class="section-title" id="publications-heading">Research Outputs</h2>
+            <div class="output-group">
+                <h3 class="output-group-title">Selected Publications</h3>
+                <div class="pub-grid">
                 <!-- P1 -->
                 <article class="pub-item">
-                    <h3 class="pub-title"><a href="https://doi.org/10.1103/n391-ns5v" target="_blank" rel="noopener noreferrer">Magnetic field tunable third-order nonlinear transport in a heterodimensional superlattice</a></h3>
+                    <h4 class="pub-title"><a href="https://doi.org/10.1103/n391-ns5v" target="_blank" rel="noopener noreferrer">Magnetic field tunable third-order nonlinear transport in a heterodimensional superlattice</a></h4>
                     <div class="pub-authors">H. Shi, X. Feng, L. Wang, H. Chen, B. Jiang, H. Wang, <strong>G. Tian</strong>, et al.</div>
                     <div class="pub-meta">
                         <cite class="journal">Phys. Rev. B 111, 235434 (2025)</cite>
@@ -559,7 +564,7 @@
                 </article>
                 <!-- P2 -->
                 <article class="pub-item">
-                    <h3 class="pub-title"><a href="https://doi.org/10.1103/PhysRevB.111.054412" target="_blank" rel="noopener noreferrer">In-plane Hall effect in Co₃Sn₂S₂</a></h3>
+                    <h4 class="pub-title"><a href="https://doi.org/10.1103/PhysRevB.111.054412" target="_blank" rel="noopener noreferrer">In-plane Hall effect in Co₃Sn₂S₂</a></h4>
                     <div class="pub-authors">L. Wang, <strong>G. Tian</strong>, H. Chen, J. Zhao, H. Shi, H. Wang, Z. Li, and X. Wu</div>
                     <div class="pub-meta">
                         <cite class="journal">Phys. Rev. B 111, 054412 (2025)</cite>
@@ -569,7 +574,7 @@
                 </article>
                 <!-- P3 -->
                 <article class="pub-item featured-publication">
-                    <h3 class="pub-title"><a href="https://doi.org/10.1103/PhysRevLett.132.106601" target="_blank" rel="noopener noreferrer">Orbital Magneto-Nonlinear Anomalous Hall Effect in Kagome Magnet Fe₃Sn₂</a></h3>
+                    <h4 class="pub-title"><a href="https://doi.org/10.1103/PhysRevLett.132.106601" target="_blank" rel="noopener noreferrer">Orbital Magneto-Nonlinear Anomalous Hall Effect in Kagome Magnet Fe₃Sn₂</a></h4>
                     <div class="pub-authors">L. Wang, J. Zhu, H. Chen, H. Wang, J. Liu, Y.-X. Huang, B. Jiang, J. Zhao, H. Shi, <strong>G. Tian</strong>, et al.</div>
                     <div class="pub-meta">
                         <cite class="journal">Phys. Rev. Lett. 132, 106601 (2024)</cite>
@@ -580,7 +585,7 @@
                 </article>
                 <!-- P4 -->
                 <article class="pub-item">
-                    <h3 class="pub-title"><a href="https://doi.org/10.1103/PhysRevB.107.L060408" target="_blank" rel="noopener noreferrer">Magnetotransport induced by anomalous Hall effect</a></h3>
+                    <h4 class="pub-title"><a href="https://doi.org/10.1103/PhysRevB.107.L060408" target="_blank" rel="noopener noreferrer">Magnetotransport induced by anomalous Hall effect</a></h4>
                     <div class="pub-authors">J. Zhao, B. Jiang, J. Yang, L. Wang, H. Shi, <strong>G. Tian</strong>, Z. Li, E. Liu, and X. Wu</div>
                     <div class="pub-meta">
                         <cite class="journal">Phys. Rev. B 107, L060408 (2023)</cite>
@@ -588,6 +593,27 @@
                         <a href="https://doi.org/10.1103/PhysRevB.107.L060408" target="_blank" rel="noopener noreferrer" class="doi" aria-label="Open article: Magnetotransport induced by anomalous Hall effect">View article ↗</a>
                     </div>
                 </article>
+                </div>
+            </div>
+
+            <div class="output-group">
+                <h3 class="output-group-title">Patent Applications</h3>
+                <div class="pub-grid">
+                    <article class="pub-item patent-item">
+                        <h4 class="pub-title" lang="zh-CN">一种基于非线性自旋极化的自旋纳米振荡器及其实现方法</h4>
+                        <div class="pub-meta">
+                            <cite class="journal">Patent application</cite>
+                            <time class="date" datetime="2026-05">Filed May 2026</time>
+                        </div>
+                    </article>
+                    <article class="pub-item patent-item">
+                        <h4 class="pub-title" lang="zh-CN">一种基于非线性自旋极化的磁随机存储器及其实现方法</h4>
+                        <div class="pub-meta">
+                            <cite class="journal">Patent application</cite>
+                            <time class="date" datetime="2026-03">Filed March 2026</time>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
