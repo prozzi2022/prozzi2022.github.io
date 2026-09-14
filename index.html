@@ -274,7 +274,29 @@
         .time { font-size: 0.85rem; color: var(--text-secondary); background: #111; padding: 2px 8px; border-radius: 4px; }
         .edu-desc { margin-top: 12px; font-size: 0.9rem; color: var(--text-secondary); }
 
-        /* --- 区域 3: 研究兴趣 (Compact Grid) --- */
+        /* --- 区域 3: 实习经历 --- */
+        .experience-section { grid-column: span 12; }
+        .experience-list { display: grid; gap: 14px; }
+        .experience-item {
+            padding: 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.02);
+        }
+        .experience-item.featured {
+            border-color: rgba(10,132,255,0.22);
+            background: linear-gradient(135deg, rgba(10,132,255,0.08), rgba(255,255,255,0.02) 55%);
+        }
+        .experience-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; }
+        .experience-company { font-size: 1rem; font-weight: 650; }
+        .experience-team { margin-top: 3px; color: var(--text-secondary); font-size: 0.82rem; }
+        .experience-role { margin-top: 8px; color: var(--accent-color); font-size: 0.88rem; font-weight: 600; }
+        .experience-date { flex: 0 0 auto; color: var(--text-secondary); font-size: 0.8rem; white-space: nowrap; }
+        .experience-details { margin: 12px 0 0 18px; color: var(--text-secondary); font-size: 0.86rem; line-height: 1.55; }
+        .experience-details li + li { margin-top: 6px; }
+        .experience-summary { margin-top: 10px; color: var(--text-secondary); font-size: 0.86rem; line-height: 1.55; }
+
+        /* --- 区域 4: 研究兴趣 (Compact Grid) --- */
         .research-section { grid-column: span 8; display: flex; flex-direction: column; }
         .interest-grid {
             display: grid;
@@ -304,7 +326,7 @@
         .interest-header span { font-weight: 600; font-size: 0.9rem; }
         .interest-p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; }
 
-        /* --- 区域 4: 奖项 (List Style) --- */
+        /* --- 区域 5: 奖项 (List Style) --- */
         .awards-section { grid-column: span 4; display: flex; flex-direction: column; }
         .award-list { display: flex; flex-direction: column; gap: 8px; height: 100%; }
         .award-row {
@@ -321,7 +343,7 @@
         .award-info h3 { font-size: 0.85rem; font-weight: 500; margin-bottom: 2px; }
         .award-info p { font-size: 0.75rem; color: var(--text-secondary); }
 
-        /* --- 区域 5: 论文 --- */
+        /* --- 区域 6: 论文 --- */
         .pub-section { grid-column: span 12; }
         .output-group + .output-group { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); }
         .output-group-title { font-size: 0.9rem; font-weight: 600; color: #c7c7cc; margin-bottom: 12px; }
@@ -363,7 +385,7 @@
         }
         .doi:hover { color: #fff; background: rgba(10, 132, 255, 0.2); border-color: rgba(10, 132, 255, 0.42); }
 
-        /* --- 区域 6: 广泛兴趣 --- */
+        /* --- 区域 7: 技术与广泛兴趣 --- */
         .broader-section { grid-column: span 12; }
         .broader-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .broader-item {
@@ -412,6 +434,8 @@
             .hero-content .bio { font-size: 0.95rem; }
             .contact-row { justify-content: center; }
             .interest-grid, .broader-grid { grid-template-columns: 1fr; }
+            .experience-head { flex-direction: column; gap: 6px; }
+            .experience-date { white-space: normal; }
             nav {
                 top: 10px;
                 width: calc(100% - 24px);
@@ -431,6 +455,7 @@
             .nav-links::-webkit-scrollbar { display: none; }
             .nav-links a { display: inline-flex; align-items: center; min-height: 40px; white-space: nowrap; }
             .interest-p, .award-info p, .broader-item p { font-size: 0.9rem; }
+            .experience-details, .experience-summary { font-size: 0.9rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -450,10 +475,11 @@
         <a href="#top" class="logo">Guang Tian</a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#publications">Outputs</a></li>
             <li><a href="#education">Education</a></li>
+            <li><a href="#research">Research</a></li>
             <li><a href="#awards">Honors</a></li>
+            <li><a href="#publications">Outputs</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="gallery.html">Album</a></li>
         </ul>
     </nav>
@@ -481,7 +507,23 @@
             </div>
         </section>
 
-        <!-- 2. 研究方向 (左侧 2/3) -->
+        <!-- 2. 教育背景 -->
+        <section class="card edu-card fade-up" id="education" aria-labelledby="education-heading">
+            <h2 class="section-title" id="education-heading">Education</h2>
+            <div class="edu-grid">
+                <div>
+                    <div class="degree">Ph.D. in Condensed Matter and Material Physics</div>
+                    <div class="school">Department of Physics, Peking University</div>
+                </div>
+                <time class="time" datetime="2022-09">September 2022 – June 2027</time>
+            </div>
+            <p class="edu-desc">
+                <strong>Advisor:</strong> Prof. Xiaosong Wu · <strong>Focus:</strong> topological and magnetic quantum materials.<br>
+                I use electrical, magnetic, and thermal transport measurements to probe topological insulators, topological semimetals, and magnetic quantum materials.
+            </p>
+        </section>
+
+        <!-- 3. 研究方向 (左侧 2/3) -->
         <section class="card research-section fade-up" id="research" aria-labelledby="research-heading">
             <h2 class="section-title" id="research-heading">Research Focus</h2>
             <div class="interest-grid">
@@ -603,6 +645,7 @@
                         <h4 class="pub-title" lang="zh-CN">一种基于非线性自旋极化的自旋纳米振荡器及其实现方法</h4>
                         <div class="pub-meta">
                             <cite class="journal">Patent application</cite>
+                            <span>Application No. 2026106493043</span>
                             <time class="date" datetime="2026-05">Filed May 2026</time>
                         </div>
                     </article>
@@ -610,6 +653,7 @@
                         <h4 class="pub-title" lang="zh-CN">一种基于非线性自旋极化的磁随机存储器及其实现方法</h4>
                         <div class="pub-meta">
                             <cite class="journal">Patent application</cite>
+                            <span>Application No. 2026103392214</span>
                             <time class="date" datetime="2026-03">Filed March 2026</time>
                         </div>
                     </article>
@@ -617,29 +661,69 @@
             </div>
         </section>
 
-        <!-- 5. 教育背景 -->
-        <section class="card edu-card fade-up" id="education" aria-labelledby="education-heading">
-            <h2 class="section-title" id="education-heading">Education</h2>
-            <div class="edu-grid">
-                <div>
-                    <div class="degree">Ph.D. in Condensed Matter and Material Physics</div>
-                    <div class="school">Department of Physics, Peking University</div>
-                </div>
-                <time class="time" datetime="2022-09">September 2022 – June 2027</time>
+        <!-- 6. 实习经历 -->
+        <section class="card experience-section fade-up" id="experience" aria-labelledby="experience-heading">
+            <h2 class="section-title" id="experience-heading">Internship Experience</h2>
+            <div class="experience-list">
+                <article class="experience-item featured">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="experience-company">Huawei</h3>
+                            <p class="experience-team">Semiconductor Business Department · Kirin Platform Solution Integration &amp; Verification Department</p>
+                            <p class="experience-role">Hardware Technology Engineer Intern</p>
+                        </div>
+                        <time class="experience-date" datetime="2026-07">July–August 2026</time>
+                    </div>
+                    <ul class="experience-details">
+                        <li>Worked across the end-to-end ISP imaging pipeline, including RAW processing, color conversion, denoising, and image/video output; reproduced image-quality issues from real-world captures, identified root causes, and validated algorithm performance.</li>
+                        <li>Used Python and OpenCV for video-frame parsing, image preprocessing, and feature computation. Independently designed a low-compute PQ defect-detection algorithm combining spatial, frequency-domain, and inter-frame temporal features to detect noise flicker and smear artifacts; achieved 98% recall and an 85% target pass rate, and deployed it for automated defect detection to support imaging-algorithm iteration.</li>
+                        <li>Built a MEMS-chip electron-irradiation simulation model that modeled electron motion and scattering, reproduced imaging anomalies caused by chip defects, and supported failure-source localization and quantitative analysis.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="experience-company">Beijing Quanshi Technology Co., Ltd. (FA)</h3>
+                            <p class="experience-role">Assistant Consultant Intern</p>
+                        </div>
+                        <time class="experience-date" datetime="2025-03">March–July 2025</time>
+                    </div>
+                    <p class="experience-summary">Collected and organized investment-project and financing materials across new energy, semiconductors, and embodied intelligence; prepared roadshow presentations and supported visits to corporate clients.</p>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="experience-company">Beijing Shuimu Wutong Venture Capital Management Co., Ltd. (VC/PE)</h3>
+                            <p class="experience-role">Government &amp; Institutional Affairs Intern</p>
+                        </div>
+                        <time class="experience-date" datetime="2024-06">June–August 2024</time>
+                    </div>
+                    <p class="experience-summary">Drafted and organized application materials for local-government industrial funds in technology sectors, primarily covering semiconductors, intelligent manufacturing, advanced materials, and new energy.</p>
+                </article>
             </div>
-            <p class="edu-desc">
-                <strong>Advisor:</strong> Prof. Xiaosong Wu · <strong>Focus:</strong> topological and magnetic quantum materials.<br>
-                I use electrical, magnetic, and thermal transport measurements to probe topological insulators, topological semimetals, and magnetic quantum materials.
-            </p>
         </section>
 
-        <!-- 6. 广泛兴趣 -->
+        <!-- 7. 技术与广泛兴趣 -->
         <section class="card broader-section fade-up" id="interests" aria-labelledby="interests-heading">
-            <h2 class="section-title" id="interests-heading">Beyond Research</h2>
+            <h2 class="section-title" id="interests-heading">Technical &amp; Broader Interests</h2>
             <div class="broader-grid">
                 <div class="broader-item">
-                    <h3>AI for Science</h3>
-                    <p>Exploring LLMs, automation, and practical ways to improve scientific research workflows.</p>
+                    <h3>Imaging Algorithms</h3>
+                    <p>Interested in ISP pipelines, computational imaging, image-quality assessment, and efficient visual defect detection.</p>
+                </div>
+                <div class="broader-item">
+                    <h3>Chip Design</h3>
+                    <p>Exploring semiconductor devices, chip architecture, and the connection between device physics and system performance.</p>
+                </div>
+                <div class="broader-item">
+                    <h3>Hardware Design</h3>
+                    <p>Interested in hardware–software co-design, embedded systems, sensing, and prototype validation.</p>
+                </div>
+                <div class="broader-item">
+                    <h3>Artificial Intelligence</h3>
+                    <p>Exploring machine learning, LLMs, scientific automation, and AI-assisted engineering workflows.</p>
                 </div>
                 <div class="broader-item">
                     <h3>Technology &amp; Venture</h3>
